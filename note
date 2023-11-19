@@ -1,0 +1,25 @@
+
+Create the configuration file /home/pzuser/update_zomboid.txt that will manage steamcmd
+
+cat >$HOME/update_zomboid.txt <<'EOL'
+// update_zomboid.txt
+//
+@ShutdownOnFailedCommand 1 //set to 0 if updating multiple servers at once
+@NoPromptForPassword 1
+force_install_dir /opt/pzserver/
+//for servers which don't need a login
+login anonymous 
+app_update 380870 validate
+quit
+EOL
+
+
+
+
+Now install Project Zomboid Server. You will use this same command every time you want to update the server to the latest version.
+
+steamcmd +runscript $HOME/update_zomboid.txt
+
+
+
+
